@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mysql</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="chat.css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="chat.js"></script>
+
+
+    <!--Load socket.io for the client side-->
+    <!--<script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>-->
+    <script src="../../socket.io/socket.io.js"></script>
+    <!--Load jQuery-->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        var socket = null;
+        var user = null;
+    </script>
+</head>
+
+<body onload="init();">
+    <div class="loginDialog" title="Login dialog">
+        <h2>Please type in your pseudo and email</h2>
+        <table>
+            <tr>
+                <td>Pseudoname:</td>
+                <td><input id="pseudo" placeholder="your pseudo"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input id="contact" placeholder="your email"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="room">
+        <div id="chat">
+            <div id="thread">
+                <h2 id="you">Welcome <span id="greet">?</span>, Pseudoname: <span id="name">?</span> - ID: <span id="id">?</span> - Email: <span id="email">?</span></h2>
+                <ul id="messages"></ul>
+            </div>
+            <div id="typing">
+                <form action="/" method="POST" id="chatForm">
+                    <input id="txt" autocomplete="off" autofocus="on" placeholder="Please enter you message here..." />
+                    <button>Send</button>
+                </form>
+            </div>
+        </div>
+        <div id="awarness">
+            <div id="head">
+                <h2>Participants</h2>
+                <button id="participants">Refresh particiapnts</button>
+            </div>
+            <div id="userDiv">
+                <ul id="users">
+                </ul>
+            </div>
+            <div id="selectedUser">
+                <h3>Selected user</h3>
+                <table>
+                    <tr>
+                        <td><b>Username:</b></td>
+                        <td><span id="userName">?</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>Email: </b></td>
+                        <td><span id="userEmail">?</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>Id: </b></td>
+                        <td><span id="userId">?</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>Contributed messages: </b></td>
+                        <td><span id="userMsgs">?</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
