@@ -1,4 +1,4 @@
-var SQL = require('sql-template-strings');
+//var SQL = require('sql-template-strings');
 const mysql = require('mysql');
 
 var pool = mysql.createPool({
@@ -40,4 +40,4 @@ function getResult(query, callback) {
 };
 
 
-module.exports = getResult;
+module.exports = { getResult };

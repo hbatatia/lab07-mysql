@@ -2,7 +2,7 @@ const db = require('./db_manager');
 
 function find(callback) {
     const selectUsers = "SELECT * from groupchat.users; ";
-    getResult(selectUsers, function(err, rows) {
+    db.getResult(selectUsers, function(err, rows) {
         if (!err) {
             callback(null, rows);
         } else {
@@ -14,8 +14,8 @@ function find(callback) {
 
 
 function findByEmail(email, callback) {
-    const selectUser = (SQL `SELECT * from groupchat.users where email like ${email};`);
-    getResult(selectUser, function(err, rows) {
+    const selectUser = (`SELECT * from groupchat.users where email like '${email}';`);
+    db.getResult(selectUser, function(err, rows) {
         if (!err) {
             callback(null, rows);
         } else {
@@ -25,8 +25,8 @@ function findByEmail(email, callback) {
 }
 
 function findById(id, callback) {
-    const selectUser = (SQL `SELECT * from groupchat.users where id = ${id};`);
-    getResult(selectUser, function(err, rows) {
+    const selectUser = (`SELECT * from groupchat.users where id = ${id};`);
+    db.getResult(selectUser, function(err, rows) {
         if (!err) {
             callback(null, rows);
         } else {
@@ -36,8 +36,8 @@ function findById(id, callback) {
 }
 
 function createUser(pseudoname, email, callback) {
-    const insertUser = (SQL `INSERT INTO groupchat.users (pseudoname, email) VALUES (${pseudoname}, ${email}) ;`);
-    getResult(insertUser, function(err, result) {
+    const insertUser = (`INSERT INTO groupchat.users (pseudoname, email) VALUES (${pseudoname}, ${email}) ;`);
+    db.getResult(insertUser, function(err, result) {
         if (!err) {
             callback(null, result.affectedRows, result.insertId);
         } else {
@@ -48,8 +48,8 @@ function createUser(pseudoname, email, callback) {
 
 
 function deleteUser(id, callback) {
-    const insertUser = (SQL `DELETE from groupchat.users where id = ${id};`);
-    getResult(selectUser, function(err, result) {
+    const insertUser = (`DELETE from groupchat.users where id = ${id};`);
+    db.getResult(selectUser, function(err, result) {
         if (!err) {
             console.log("Number of users inserted: " + result.affectedRows);
             callback(null, result.affectedRows);

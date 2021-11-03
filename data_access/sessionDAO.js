@@ -8,7 +8,7 @@ var con = mysql.createConnection({
 
 
 const find = function() {
-    const selectSessions = "SEELECT * from groupchat.sessions ;";
+    const selectSessions = "SELECT * from groupchat.sessions ;";
     con.connect(function(err) {
         if (err) throw err;
         //select all sessions
@@ -21,7 +21,7 @@ const find = function() {
 };
 
 const findById = function(id) {
-    const selectSession = "SEELECT * from groupchat.sessions where id = ?";
+    const selectSession = "SELECT * from groupchat.sessions where id = ?";
     con.connect(function(err) {
         if (err) throw err;
         //select session by id

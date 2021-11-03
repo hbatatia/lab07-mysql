@@ -1,6 +1,6 @@
 function User(name, email) {
     this.pseudoname = name;
-    this.contact = email;
+    this.email = email;
 }
 
 function init() {
@@ -69,11 +69,13 @@ function init() {
         $('#messages').append($('<li>').html(msg));
     });
 
-    // Whe the server process a user connection, it raises logged event
+    // Whe the server process a user connection, it raises 'logged' event
     //here we send a post request to the server check if he/she is new
     //in such case, we insert it in the DB at the server
-    socket.on('logged', function(auser) {
-        console.log('Logged event received from server' + auser);
+    socket.on('logged', function(who) {
+        console.log('Logged event received from server');
+        console.log('Pseudo: ' + who.pseudoname);
+        console.log('Email: ' + who.email);
         //send a POST request with jQuery and AJAX
         $.ajax({
             type: 'post',
@@ -81,18 +83,22 @@ function init() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify({ auser }), //stringify the data object
-            success: function(auser) { //define the call back on success 
+            data: JSON.stringify({ who }), //stringify the data object
+            success: function(theuser) { //define the call back on success 
                 //receive a composite object from server with old and the user
                 //old is false when user has just been inserted in the DB
-                if (auser.old) {
-                    $('#greet').html("<b> back</b>");
-                } else {
-                    $('#greet').html("<b> (new)</b>");
+                console.log("who: " + user.email);
+                console.log("theuser: " + theuser.obj.email);
+                if (user.email === theuser.obj.email) {
+                    if (theuser.old) {
+                        $('#greet').html("<b> back</b>");
+                    } else {
+                        $('#greet').html("<b> (new)</b>");
+                    }
+                    $('#name').html("<i>" + theuser.obj.pseudoname + "</i>");
+                    $('#email').html("<i>" + theuser.obj.email + "</i>");
+                    $('#id').html("<i>" + theuser.obj.id + "</i>");
                 }
-                $('#name').html("<i>" + auser.obj.pseudoname + "</i>");
-                $('#email').html("<i>" + auser.obj.email + "</i>");
-                $('#id').html("<i>" + auser.obj.id + "</i>");
             },
             dataType: 'json'
         });
@@ -131,7 +137,7 @@ function init() {
             "Log-in": function() {
                 //when login is clicked, we create a user with the data , we emit the object with socket
                 //and we close the dialog
-                user = new User($("#pseudo").val(), $("#contact").val());
+                user = new User($("#thepseudoname").val(), $("#theemail").val());
                 var obj = JSON.stringify(user);
                 socket.emit('login', user);
                 $(this).dialog("close");

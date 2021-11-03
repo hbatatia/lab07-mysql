@@ -1,129 +1,129 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font: 13px Helvetica, Arial;
-        }
-        
-        form {
-            background: #fff;
-            padding: 3px;
-            position: absolute;
-            /*fixed*/
-            bottom: 0;
-            width: 80%;
-            /*100*/
-            border-color: #000;
-            border-top-style: solid;
-            border-top-width: 1px;
-        }
-        
-        form input {
-            border-style: solid;
-            border-width: 1px;
-            padding: 10px;
-            width: 85%;
-            margin-right: .5%;
-        }
-        
-        form button {
-            width: 9%;
-            background: rgb(113, 182, 99);
-            border: none;
-            padding: 10px;
-            margin-left: 2%;
-        }
-        
-        #messages {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        #messages li {
-            padding: 5px 10px;
-        }
-        
-        #messages li:nth-child(odd) {
-            background: #eee;
-        }
-        
-        #awarness {
-            position: relative;
-            /*float: right;*/
-            width: 20%;
-            background-color: #000;
-            height: 100vh;
-        }
-        
-        #head {
-            top: 0px;
-            padding-left: 20px;
-            color: white;
-        }
-        
-        #userDiv {
-            height: 80%;
-        }
-        
-        #selectedUser {
-            padding-left: 20px;
-            color: white;
-            margin-bottom: 0px;
-        }
-        
-        #users {
-            padding-left: 20px;
-            color: white;
-        }
-        
-        #users li {
-            padding-top: 10px;
-        }
-        
-        #chat {
-            display: relative;
-            float: left;
-            width: 80%
-        }
-        
-        #room {
-            display: flex;
-            width: 100%
-        }
-        
-        .loginDialog {
-            display: none;
-        }
-        
-        .loginDialog h2 {
-            text-align: center;
-        }
-        
-        #pseudo {
-            width: 42ch;
-        }
-        
-        #contact {
-            width: 42ch;
-        }
-        
-        .ui-dialog-titlebar-close {
-            visibility: hidden;
-        }
-        
-        .ui-widget-header {
-            background: red;
-            text-align: center;
-            font-size: 12pt;
-            color: white;
-        }
-        
-        #you {
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 13px Helvetica, Arial;
+}
+
+form {
+    background: #fff;
+    padding: 3px;
+    position: absolute;
+    /*fixed*/
+    bottom: 0;
+    width: 80%;
+    /*100*/
+    border-color: #000;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+form input {
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    width: 85%;
+    margin-right: .5%;
+}
+
+form button {
+    width: 9%;
+    background: rgb(113, 182, 99);
+    border: none;
+    padding: 10px;
+    margin-left: 2%;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#messages li {
+    padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) {
+    background: #eee;
+}
+
+#awarness {
+    position: relative;
+    /*float: right;*/
+    width: 20%;
+    background-color: #000;
+    height: 100vh;
+}
+
+#head {
+    top: 0px;
+    padding-left: 20px;
+    color: white;
+}
+
+#userDiv {
+    height: 80%;
+}
+
+#selectedUser {
+    padding-left: 20px;
+    color: white;
+    margin-bottom: 0px;
+}
+
+#users {
+    padding-left: 20px;
+    color: white;
+}
+
+#users li {
+    padding-top: 10px;
+}
+
+#chat {
+    display: relative;
+    float: left;
+    width: 80%
+}
+
+#room {
+    display: flex;
+    width: 100%
+}
+
+.loginDialog {
+    display: none;
+}
+
+.loginDialog h2 {
+    text-align: center;
+}
+
+#thepseudoname {
+    width: 42ch;
+}
+
+#theemail {
+    width: 42ch;
+}
+
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+.ui-widget-header {
+    background: red;
+    text-align: center;
+    font-size: 12pt;
+    color: white;
+}
+
+#you {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
