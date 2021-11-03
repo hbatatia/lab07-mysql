@@ -18,7 +18,7 @@ app.use(session({
 }));
 
 
-app.use(express.static('views'));
+app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.sendFile('index.html', { root: __dirname });
 });
@@ -28,11 +28,11 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 //pass requests to the router middleware
-const chatRouter = require('./routes/post');
+const chatRouter = require('./routes/router');
 app.use(chatRouter);
 
 //create database if not exists
-const createDB = require('./daos/db');
+const createDB = require('./data_access/db_init');
 createDB();
 
 //make the app listen on port 

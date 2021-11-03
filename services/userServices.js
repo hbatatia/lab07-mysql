@@ -1,5 +1,5 @@
 const { User } = require('../models/entities');
-const userDAO = require('../daos/userDAO');
+const userDAO = require('../data_access/userDAO');
 
 const loginService = (pseudoname, email, callback) => {
     //check if the user is in the DB

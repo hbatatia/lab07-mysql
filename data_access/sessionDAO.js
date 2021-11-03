@@ -1,4 +1,3 @@
-//const { Session } = require('../models/entities');
 const mysql = require('mysql');
 var con = mysql.createConnection({
     host: "localhost",
