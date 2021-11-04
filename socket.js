@@ -1,6 +1,13 @@
 function setSocket(myserver) {
     //loading socket.io and binding to the server
-    const io = require('socket.io')(myserver);
+    //const io = require('socket.io')(myserver);
+
+    // set up cors
+    const io = require('socket.io')(myserver, {
+        cors: {
+            origin: '*',
+        }
+    });
 
     //setting up the eventHandler for the "connection" event type
     //the connection event is raider by the server whenever it receives any request
